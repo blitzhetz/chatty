@@ -1,0 +1,20 @@
+#!/bin/bash
+
+start_server() {
+  javac -cp ./bin -d ./bin src/main/java/com/blitzhetz/server/*.java
+  java -cp ./bin com.blitzhetz.server.ChattyServer 8989
+}
+
+start_client() {
+  javac -cp ./bin -d ./bin src/main/java/com/blitzhetz/client/*.java
+  java -cp ./bin com.blitzhetz.client.ChattyClient localhost 8989
+}
+
+if [ "$1" == "server" ]; then
+  start_server
+elif [ "$1" == "client" ]; then
+  start_client
+else
+  echo "Usage: $0 (server|client)"
+  exit 1
+fi
