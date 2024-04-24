@@ -33,6 +33,20 @@ public class ChattyClient {
         System.out.println();
     }
 
+    public void clearConsole() {
+        try {
+            final String os = System.getProperty("os.name");
+
+            if (os.contains("Windows")) {
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            } else {
+                new ProcessBuilder("bash", "-c", "clear").inheritIO().start().waitFor();
+            }
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+    }
+
     public void registerOrLogin() {
         displayLogo();
 
@@ -84,6 +98,10 @@ public class ChattyClient {
                 System.out.println("Invalid choice. Please enter 'register' or 'login'.");
             }
         }
+
+        clearConsole();
+
+        displayLogo();
     }
 
     public void execute() {
