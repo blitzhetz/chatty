@@ -1,4 +1,4 @@
-package com.blitzhetz.server;
+package com.blitzhetz.db;
 
 import java.security.SecureRandom;
 import java.sql.Connection;

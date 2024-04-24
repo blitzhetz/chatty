@@ -6,7 +6,7 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-import com.blitzhetz.server.Database;
+import com.blitzhetz.db.Database;
 
 public class ChattyClient {
     private final String hostname;
